@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "ICity Small Business Manager - Backend API",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js"
