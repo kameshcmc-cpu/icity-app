@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: '/api' });
+const BASE_URL = import.meta.env.VITE_API_URL || '';
+
+const api = axios.create({ baseURL: `${BASE_URL}/api` });
 
 api.interceptors.request.use(config => {
   const token = localStorage.getItem('icity_token');
@@ -20,7 +22,7 @@ api.interceptors.response.use(
   }
 );
 
-export const authApi = axios.create({ baseURL: '/auth' });
+export const authApi = axios.create({ baseURL: `${BASE_URL}/auth` });
 authApi.interceptors.request.use(config => {
   const token = localStorage.getItem('icity_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
