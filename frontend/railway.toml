@@ -3,4 +3,4 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 
 [deploy]
-startCommand = "npx serve dist -l $PORT"
+startCommand = "npx vite preview --port $PORT --host"
