@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import axios from 'axios';
+import { createContext, useContext, useState } from 'react';
+import { authApi } from '../api';
 
 const AuthContext = createContext(null);
 
@@ -18,7 +18,7 @@ export function AuthProvider({ children }) {
   async function loginWithGoogle(credential) {
     setLoading(true);
     try {
-      const { data } = await axios.post('/auth/google', { credential });
+      const { data } = await authApi.post('/google', { credential });
       localStorage.setItem('icity_token', data.token);
       localStorage.setItem('icity_user', JSON.stringify(data.user));
       setUser(data.user);
