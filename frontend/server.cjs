@@ -27,9 +27,20 @@ http.createServer((req, res) => {
   }
 
   const ext = path.extname(filePath);
+  const isHtml = ext === '.html' || ext === '';
+
+  const headers = {
+    'Content-Type': MIME[ext] || 'application/octet-stream',
+  };
+
+  // Required for Google OAuth popup to postMessage back to this page
+  if (isHtml) {
+    headers['Cross-Origin-Opener-Policy'] = 'same-origin-allow-popups';
+  }
+
   fs.readFile(filePath, (err, data) => {
     if (err) { res.writeHead(404); res.end('Not found'); return; }
-    res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
+    res.writeHead(200, headers);
     res.end(data);
   });
 }).listen(PORT, '0.0.0.0', () => console.log(`Frontend serving dist/ on port ${PORT}`));
