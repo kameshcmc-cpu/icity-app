@@ -47,25 +47,13 @@ export default function Dashboard() {
       </div>
 
       {/* KPI Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-gutter mb-8">
-        <div className="xl:col-span-2">
-          <KPICard label="Total Revenue" value={fmtCurrency(kpis.totalRevenue)} icon="payments" subColor="green" />
-        </div>
-        <div className="xl:col-span-2">
-          <KPICard label="Outstanding" value={fmtCurrency(kpis.outstandingAmount)} icon="schedule" subColor="orange" />
-        </div>
-        <div className="xl:col-span-1">
-          <KPICard label="Orders" value={kpis.totalOrders} sub={`${kpis.pendingOrders} pending`} icon="shopping_cart" subColor="orange" />
-        </div>
-        <div className="xl:col-span-1">
-          <KPICard label="Invoices" value={kpis.totalInvoices} sub={`${kpis.overdueInvoices} overdue`} icon="receipt_long" subColor="red" />
-        </div>
-        <div className="xl:col-span-1">
-          <KPICard label="Customers" value={kpis.totalCustomers} icon="group" />
-        </div>
-        <div className="xl:col-span-1">
-          <KPICard label="Products" value={kpis.totalProducts} icon="inventory_2" />
-        </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-8">
+        <KPICard label="Total Revenue" value={fmtCurrency(kpis.totalRevenue)} icon="payments" subColor="green" />
+        <KPICard label="Outstanding" value={fmtCurrency(kpis.outstandingAmount)} icon="schedule" subColor="orange" />
+        <KPICard label="Orders" value={kpis.totalOrders} sub={`${kpis.pendingOrders} pending`} icon="shopping_cart" subColor="orange" />
+        <KPICard label="Invoices" value={kpis.totalInvoices} sub={`${kpis.overdueInvoices} overdue`} icon="receipt_long" subColor="red" />
+        <KPICard label="Customers" value={kpis.totalCustomers} icon="group" />
+        <KPICard label="Products" value={kpis.totalProducts} icon="inventory_2" />
       </div>
 
       {/* Main Content */}
