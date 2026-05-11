@@ -13,11 +13,13 @@ export default function Modal({ open, onClose, title, children, size = 'md' }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className={`relative bg-white rounded-xl shadow-xl w-full ${widths[size]} max-h-[90vh] flex flex-col`}>
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none">&times;</button>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div className={`relative bg-surface-container border border-outline-variant/30 rounded-2xl shadow-2xl w-full ${widths[size]} max-h-[90vh] flex flex-col`}>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-outline-variant/30">
+          <h2 className="text-lg font-semibold text-on-surface">{title}</h2>
+          <button onClick={onClose} className="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest w-8 h-8 rounded-lg flex items-center justify-center transition-all">
+            <span className="material-symbols-outlined text-lg">close</span>
+          </button>
         </div>
         <div className="flex-1 overflow-y-auto px-6 py-5">{children}</div>
       </div>

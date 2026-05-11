@@ -1,24 +1,24 @@
-const STATUS_COLORS = {
-  draft:       'bg-gray-100 text-gray-700',
-  submitted:   'bg-blue-100 text-blue-700',
-  approved:    'bg-green-100 text-green-700',
-  rejected:    'bg-red-100 text-red-700',
-  pending:     'bg-yellow-100 text-yellow-800',
-  'in-progress': 'bg-blue-100 text-blue-700',
-  completed:   'bg-green-100 text-green-700',
-  cancelled:   'bg-red-100 text-red-700',
-  sent:        'bg-purple-100 text-purple-700',
-  paid:        'bg-green-100 text-green-700',
-  partial:     'bg-orange-100 text-orange-700',
-  overdue:     'bg-red-100 text-red-700',
-  active:      'bg-green-100 text-green-700',
-  inactive:    'bg-gray-100 text-gray-600',
+const STATUS = {
+  draft:        'bg-surface-container-highest text-on-surface-variant',
+  submitted:    'bg-primary/20 text-primary',
+  approved:     'bg-tertiary/20 text-tertiary',
+  rejected:     'bg-error/20 text-error',
+  pending:      'bg-secondary/20 text-secondary',
+  'in-progress':'bg-primary/20 text-primary',
+  completed:    'bg-tertiary/20 text-tertiary',
+  cancelled:    'bg-error/20 text-error',
+  sent:         'bg-primary/20 text-primary',
+  paid:         'bg-tertiary/20 text-tertiary',
+  partial:      'bg-secondary/20 text-secondary',
+  overdue:      'bg-error/20 text-error',
+  active:       'bg-tertiary/20 text-tertiary',
+  inactive:     'bg-surface-container-highest text-on-surface-variant',
 };
 
 export default function StatusBadge({ status }) {
-  const cls = STATUS_COLORS[status] || 'bg-gray-100 text-gray-700';
+  const cls = STATUS[status] || 'bg-surface-container-highest text-on-surface-variant';
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize ${cls}`}>
+    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize ${cls}`}>
       {status?.replace('-', ' ')}
     </span>
   );

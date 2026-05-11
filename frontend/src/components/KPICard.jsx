@@ -1,21 +1,19 @@
-export default function KPICard({ label, value, sub, color = 'blue', icon }) {
-  const colors = {
-    blue:   'bg-blue-50 text-blue-600',
-    green:  'bg-green-50 text-green-600',
-    yellow: 'bg-yellow-50 text-yellow-600',
-    red:    'bg-red-50 text-red-600',
-    purple: 'bg-purple-50 text-purple-600',
-    orange: 'bg-orange-50 text-orange-600',
+export default function KPICard({ label, value, sub, subColor = 'muted', icon }) {
+  const subColors = {
+    muted:  'text-on-surface-variant',
+    green:  'text-tertiary',
+    red:    'text-error',
+    orange: 'text-secondary',
   };
   return (
-    <div className="card flex items-center gap-4">
-      <div className={`flex-shrink-0 h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${colors[color]}`}>
-        {icon}
+    <div className="glass-card-hover p-card-padding flex items-center gap-5">
+      <div className="flex-shrink-0 h-14 w-14 rounded-2xl bg-primary-container flex items-center justify-center">
+        <span className="material-symbols-outlined text-2xl text-primary">{icon}</span>
       </div>
       <div>
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className="text-2xl font-bold text-gray-900">{value}</p>
-        {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+        <p className="text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1">{label}</p>
+        <p className="text-2xl font-bold text-on-surface">{value}</p>
+        {sub && <p className={`text-xs mt-0.5 ${subColors[subColor]}`}>{sub}</p>}
       </div>
     </div>
   );
